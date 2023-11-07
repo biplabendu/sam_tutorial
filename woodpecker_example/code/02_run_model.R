@@ -11,6 +11,8 @@ package.list <- c("here", "tidyverse",
                   'mcmcplots',
                   "coda") #mcmc output
 
+## download and install JAGS
+
 
 ## Installing them if they aren't already on the computer
 new.packages <- package.list[!(package.list %in% 
@@ -28,7 +30,7 @@ for(i in package.list){library(i, character.only = T)}
 # Load Data ---------------------------------------------------------------
 
 #load the formatted data for the JAGS model
-data <- readRDS(here("woodpecker_exmaple",
+data <- readRDS(here("woodpecker_example",
                      "data",
                      "data_output",  
                      "JAGS_input_data_list.RDS"))
@@ -76,6 +78,7 @@ parms <- c("b",
 mcmcplot(init_mod$samples, parms = parms)
 
 gelman.diag(init_mod$samples)
+
 # Raftery -----------------------------------------------------------------
 
 raf_init <- raftery.diag(init_mod$samples)

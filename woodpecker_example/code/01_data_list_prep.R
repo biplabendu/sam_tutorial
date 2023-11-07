@@ -16,6 +16,8 @@ if(length(new.packages)) install.packages(new.packages)
 
 ## And loading them
 for(i in package.list){library(i, character.only = T)}
+source(here("functions",
+            "tidy_functions.R"))
 
 # Load data ---------------------------------------------------------------
 
@@ -103,7 +105,7 @@ all_data <- list(n.nests = n.nests,
                  n.years = n.years,
                  Transect.num = Transect.num,
                  Year.num = Year.num,
-                 Year = Year,
+                 # Year = Year,
                  Tmax = Tmax,
                  PPT = PPT,
                  n.lag = n.lag,
@@ -111,7 +113,7 @@ all_data <- list(n.nests = n.nests,
                  n.forests = n.forests,
                  Forest.num = Forest.num)
 
-saveRDS(all_data, here("woodpecker_exmaple",
+saveRDS(all_data, here("woodpecker_example",
                        "data",
                        "data_output",  
                        "JAGS_input_data_list.RDS"))
